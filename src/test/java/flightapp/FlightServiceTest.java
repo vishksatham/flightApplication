@@ -24,7 +24,7 @@ import org.junit.runners.*;
 
 
 /**
- * Autograder for the transaction assignment
+ * Transaction assignment
  */
 @RunWith(Parameterized.class)
 public class FlightServiceTest {
@@ -144,7 +144,7 @@ public class FlightServiceTest {
       StringBuffer sb = new StringBuffer();
       for (String cmd : cmds) {
         if (cmd.equals(BARRIER_COMMAND) && barrier != null) {
-          // HELLO STUDENTS!  Congratulations on finding the secret "barrier" command!
+          // secret "barrier" command!
           //
           // This "hidden" command implements a barrier across all sessions; no session may
           // proceed until all sessions have entered the barrier.  This is useful for, for
