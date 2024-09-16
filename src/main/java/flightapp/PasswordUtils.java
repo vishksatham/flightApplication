@@ -50,9 +50,9 @@ public class PasswordUtils {
    * Verifies whether the plaintext password can be hashed to provided salted hashed password.
    */
   public static boolean plaintextMatchesSaltedHash(String plaintext, byte[] saltedHashed) {
-    // TODO: extract the salt from the byte array (ie, undo the logic you implemented in 
-    // saltAndHashPassword), then use it to check whether the user-provided plaintext
-    // password matches the password hash.
+    // Extracts the salt from the byte array and uses it to check whether the 
+    // user-provided plaintext password matches the password hash.
+    
     byte[] sStorage = new byte[SALT_LENGTH_BYTES];
 
     for(int x = 0; x < sStorage.length; x++) {
@@ -68,8 +68,6 @@ public class PasswordUtils {
     }
 
     return Arrays.equals(hPlain, hStorage);
-
-    //return false;
   }
   
   // Password hashing parameter constants.
