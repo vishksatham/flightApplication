@@ -108,7 +108,6 @@ public class Query extends QueryAbstract {
   public void clearTables() {
     
     try {
-      // TODO: YOUR CODE HERE
 
       clearReservationStatement.executeUpdate();
 
@@ -166,8 +165,7 @@ public class Query extends QueryAbstract {
 
   /* See QueryAbstract.java for javadoc */
   public String transaction_login(String username, String password) {
-    // TODO: YOUR CODE HERE
-
+  
     try {
       if(!sess_login) {
         String caseInsensUsername = username.toLowerCase();
@@ -251,11 +249,8 @@ public class Query extends QueryAbstract {
   public String transaction_search(String originCity, String destinationCity, 
                                    boolean directFlight, int dayOfMonth,
                                    int numberOfItineraries) {
-    // WARNING: the below code is insecure (it's susceptible to SQL injection attacks) AND only
-    // handles searches for direct flights.  We are providing it *only* as an example of how
-    // to use JDBC; you are required to replace it with your own secure implementation.
-    //
-    // TODO: YOUR CODE HERE
+    // Account for susceptiblity to SQL injection attacks while using JDBC. 
+    // Handle searches for both indirect and direct flights
 
     StringBuffer sb = new StringBuffer();
 
@@ -270,9 +265,6 @@ public class Query extends QueryAbstract {
         ResultSet oneHopResults = searchStatement.executeQuery();
 
         itineraries.clear();
-
-        //List<Itinerary> allItin = new ArrayList<>();
-        //List<Flights> f = new ArrayList<>();
 
         while(itineraries.size() < numberOfItineraries && oneHopResults.next()) {
           
@@ -433,32 +425,6 @@ public class Query extends QueryAbstract {
                 + id1.flightNum + " Origin: " + id1.originCity + " Dest: " + id1.destCity + " Duration: " + duration
                 + " Capacity: " + id1.capacity + " Price: " + id1.price;
     }
-
-    /*@Override
-    public int compareTo(Itinerary o){
-      if(id1.duration > o.duration) {
-        return 1;
-      }
-      else if (id1.duration < o.duration) {
-        return -1;
-      }
-      else if(flight1.fid1 > o.flight1.fid1) {
-        return 1;
-      }
-      else if(flight1.fid1 < o.flight1.fid1) {
-        return -1;
-      }
-
-      else if(flight1.fid2 > o.flight2.fid2) {
-        return 1;
-      }
-
-      else if(flight2.fid2 < o.flight2.fid2) {
-        return -1;
-      }
-
-      return 0;
-    }*/
     
   }
 
@@ -482,9 +448,8 @@ public class Query extends QueryAbstract {
 
   /* See QueryAbstract.java for javadoc */
   /*public String transaction_book(int itineraryId) {
-    // TODO: YOUR CODE HERE
-
-    ///////////////////////////////////////////////////////
+  
+    //Updated booking below
 
     int rid = -1;
 
@@ -557,9 +522,6 @@ public class Query extends QueryAbstract {
 }*/
 
  public String transaction_book(int itineraryId) {
-    // TODO: YOUR CODE HERE
-
-    ///////////////////////////////////////////////////////
 
     int rid = -1;
 
@@ -621,13 +583,8 @@ public class Query extends QueryAbstract {
 
         e.printStackTrace();
 
-        //return "Failed to book reservation\n";
-        //rid++;
-
         return "Booking failed\n";
     }
-
-    //return "Booked flight(s), reservation ID: " + rid + "\n";
     
 }
 
@@ -802,8 +759,6 @@ public class Query extends QueryAbstract {
       e.printStackTrace();
       return "Failed to retrieve reservations\n";
     }
-
-    //return "Failed to retrieve reservations\n";
 
   }
 
