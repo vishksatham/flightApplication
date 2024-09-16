@@ -1,0 +1,101 @@
+# Login parallel test case (Written Test Case)
+
+
+# Terminal 1's inputs:
+create user1 user1 500
+login user1 user1
+search "Seattle WA" "Boston MA" 1 1 1
+book 0
+quit
+*
+
+# Scenario 1 of 2: Terminal 1 suceeds in user creation
+Created user user1
+Logged in as user1
+Itinerary 0: 1 flight(s), 297 minutes
+ID: 60454 Day: 1 Carrier: AS Number: 24 Origin: Seattle WA Dest: Boston MA Duration: 297 Capacity: 1 Price: 140
+Booked flight(s), reservation ID: 1
+|
+# Scenario 2 of 2:
+Created user user1
+Logged in as user1
+Itinerary 0: 1 flight(s), 297 minutes
+ID: 60454 Day: 1 Carrier: AS Number: 24 Origin: Seattle WA Dest: Boston MA Duration: 297 Capacity: 14 Price: 140
+Booked flight(s), reservation ID: 1
+Goodbye
+|
+# Scenario 3
+Created user user1
+Logged in as user1
+Itinerary 0: 1 flight(s), 297 minutes
+ID: 60454 Day: 1 Carrier: AS Number: 24 Origin: Seattle WA Dest: Boston MA Duration: 297 Capacity: 14 Price: 140
+Booked flight(s), reservation ID: 2
+Goodbye
+|
+# Scenario 4
+Created user user1
+Logged in as user1
+Itinerary 0: 1 flight(s), 297 minutes
+ID: 60454 Day: 1 Carrier: AS Number: 24 Origin: Seattle WA Dest: Boston MA Duration: 297 Capacity: 14 Price: 140
+Booked flight(s), reservation ID: 1
+Goodbye
+|
+# Scenario 5
+Created user user1
+Logged in as user1
+Itinerary 0: 1 flight(s), 297 minutes
+ID: 60454 Day: 1 Carrier: AS Number: 24 Origin: Seattle WA Dest: Boston MA Duration: 297 Capacity: 14 Price: 140
+Booking failed
+Goodbye
+*
+
+##################### Concurrently executed commands: #####################
+
+# Terminal 2's inputs:
+create user2 user2 500
+login user2 user2
+search "Seattle WA" "Boston MA" 1 1 1
+book 0
+quit
+*
+
+# Scenario 1 of 2: Terminal 2 suceeds in user creation
+Created user user2
+Logged in as user2
+Itinerary 0: 1 flight(s), 297 minutes
+ID: 60454 Day: 1 Carrier: AS Number: 24 Origin: Seattle WA Dest: Boston MA Duration: 297 Capacity: 14 Price: 140
+Booking failed
+Goodbye
+|
+#Scenario 2 of 2:
+Created user user2
+Logged in as user2
+Itinerary 0: 1 flight(s), 297 minutes
+ID: 60454 Day: 1 Carrier: AS Number: 24 Origin: Seattle WA Dest: Boston MA Duration: 297 Capacity: 14 Price: 140
+Booked flight(s), reservation ID: 2
+Goodbye
+|
+#Scenario 3
+Created user user2
+Logged in as user2
+Itinerary 0: 1 flight(s), 297 minutes
+ID: 60454 Day: 1 Carrier: AS Number: 24 Origin: Seattle WA Dest: Boston MA Duration: 297 Capacity: 14 Price: 140
+Booked flight(s), reservation ID: 1
+Goodbye
+|
+#Scenario 4
+Created user user2
+Logged in as user2
+Itinerary 0: 1 flight(s), 297 minutes
+ID: 60454 Day: 1 Carrier: AS Number: 24 Origin: Seattle WA Dest: Boston MA Duration: 297 Capacity: 14 Price: 140
+Booking failed
+Goodbye
+|
+#Scenario 5
+Created user user2
+Logged in as user2
+Itinerary 0: 1 flight(s), 297 minutes
+ID: 60454 Day: 1 Carrier: AS Number: 24 Origin: Seattle WA Dest: Boston MA Duration: 297 Capacity: 14 Price: 140
+Booked flight(s), reservation ID: 1
+Goodbye
+*

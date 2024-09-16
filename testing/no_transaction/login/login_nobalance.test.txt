@@ -1,0 +1,13 @@
+# Verify that a user with insufficient balance can still log in.
+
+# commands to execute:
+create user1 user1 0
+login user1 user1
+quit
+*
+
+# expected output:
+Created user user1
+Logged in as user1
+Goodbye
+*

@@ -1,0 +1,11 @@
+# Test case that tests program's ability to fail to create user (Written Test Case)
+
+# commands to execute:
+create user1 user1 -100
+quit
+*
+
+# expected output from those commands:
+Failed to create user
+Goodbye
+*

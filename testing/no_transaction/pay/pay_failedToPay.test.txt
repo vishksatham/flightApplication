@@ -1,0 +1,11 @@
+#Tests that the application prevents reservation payment without a user login (Written Test Case)
+
+# commands to execute:
+pay 1
+quit
+*
+
+# expected output:
+Cannot pay, not logged in
+Goodbye
+*

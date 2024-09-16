@@ -1,0 +1,15 @@
+# Verify we can create multiple users (Written Test Case)
+
+# commands to execute:
+create user1 user1 100
+create user2 user2 100
+create user3 user3 100
+quit
+*
+
+# expected output from those commands:
+Created user user1
+Created user user2
+Created user user3
+Goodbye
+*
